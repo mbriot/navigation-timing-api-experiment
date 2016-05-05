@@ -1,0 +1,46 @@
+
+
+Faire un site avec un serveur java, un rendu css/javascript/html
+
+Contient 3 pages : homePage, listePage, productPage
+On peut se balader entre les 3 pages
+
+Mesurer : 
+dns resolution
+handShake TCP : connectEnd - connectStart : permet de calculer la latence ???
+TTFB : temps traitement serveur  + network
+downloadTime Html : responseEnd - responseStart : 
+startRenderTime : ?? renderTree constructed ???
+
+ce qui donne : 
+{
+	location : hp || pl || pp,
+	dnsLookUp : 10,
+	handShake : 10,
+	ttfb : 10,
+	downloadTime : 10,
+	startRenderTime : 10
+}
+
+Permettre d'envoyer ça sur le serveur et le logguer
+
+Faire un selenium qui enchaine les requetes pour avoir de la data
+
+Prendre un truc pour analyser les logs : excel qlikview splunk
+
+
+Developper de quoi dégrader des parties précises du process et les tagguer avec GIT
+ttfb : thread.sleep server
+startRenderTime : comment le dégrader ??
+latence : utiliser Charles ou un truc qui modifie la latence
+dns : mettre un fake server DNS en local ou ajouter plein de lien dans la page pour que le browser doivent les resoudre
+
+git co tag/degradeTtfb
+git co tag/degradeStartRenderTime
+
+
+
+Montrer l'effet sur les courbes et mettre en évidences qu'on peut identifier précisemment d'ou vient le problème
+
+
+Idée : comment trouver la latence et en déduire la bande passante en fonction de downloadTime
